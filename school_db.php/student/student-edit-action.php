@@ -1,0 +1,47 @@
+<?php
+print_r($_POST);
+
+$code_meli = $_POST["code_meli"];
+$firstname = $_POST["firstname"];
+$lastname = $_POST["lastname"];
+$father = $_POST["father"];
+$jenseiat = $_POST["jenseiat"];
+$tarikh_tavalod = $_POST["tarikh_tavalod"];
+$moadel = $_POST["moadel"];
+$tozihat = $_POST["tozihat"];
+$code_modir = $_POST["code_modir"];
+
+
+
+$cnn = new mysqli("localhost", "root", "", "school_db");
+
+$sql = "UPDATE `student` 
+SET 
+`code_meli`='$code_meli',
+`firstname`='$firstname',
+`lastname`='$lastname',
+`father`='$father',
+`jenseiat`='$jenseiat',
+`tarikh_tavalod`='$tarikh_tavalod',
+`moadel`='$moadel',
+`tozihat`='$tozihat',
+`code_modir`='$code_modir'
+WHERE `student`.`code_meli` = $code_meli";
+
+$result =  $cnn->query($sql);
+
+if ($cnn->affected_rows > 0) {
+    echo " ثبت تغییرات بر دانش آموز با";
+    echo "<span style=\"color: greenyellow;\">" . "موفقیت" . "</span>";
+    echo " انجام شد";
+} else {
+    echo " ثبت تغییرات بر دانش آموز با";
+    echo "<span style=\"color: red;\">" . "شکست" . "</span>";
+    echo " مواجه شد";
+}
+
+?>
+
+<p>
+    <a href="student.php">لیست دانش آموزان</a>
+</p>
