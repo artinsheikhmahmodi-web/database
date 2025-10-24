@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(isset($_SESSION["user_logged"]) && (!empty($_SESSION["user_logged"]))){
+    $user_logged = $_SESSION["user_logged"];
+    print_r($_SESSION);
+}
+else{
+    echo "مجاز نیستید";
+    echo "<hr>";
+    echo "<a href=\"login.php\">ورود</a>";
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +31,9 @@
 
 
     <?php
-    $cnn = new mysqli("localhost", "root", "", "school_db");
+    include "../db.php";
+    $cnn = (new db)->connection_database;
+    //$cnn = new mysqli("localhost", "root", "", "school_db");
 
     if (
         isset($_GET["search_1"]) && !empty($_GET["search_1"])  &&

@@ -170,7 +170,6 @@ if (isset($_SESSION["user_logged"]) && (!empty($_SESSION["user_logged"]))) {
                 <th>code_meli</th>
                 <th>firstname</th>
                 <th>lastname</th>
-                <th>عملیات</th>
             </tr>
             <?php
             while ($record = $r->fetch_assoc()) {

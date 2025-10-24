@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+        <input type="radio" name="selected_modir" id="selected_modir177" value="177" onclick="selected_modir(177)">
+    </p>
+    <p>
+        <input type="radio" name="selected_modir" id="selected_modir914" value="914"  onclick="selected_modir(914)">
+    </p>
+
+    <p>
+        <a href="../madreseh/madreseh-add.php?option=selected_modir&code_modir=" id="code_modir_selected">برگشت به مدرسه جدید</a>        
+    </p>
+    
+<script>
+function selected_modir(id){
+    let url_base = "../madreseh/madreseh-add.php?option=selected_modir&code_modir=";
+    url_base += id;
+    console.log( document.querySelector("#code_modir_selected"))
+    document.querySelector("#code_modir_selected").href =  url_base
+}
+</script>
+
+
+</body>
+</html>
